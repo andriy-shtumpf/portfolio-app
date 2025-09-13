@@ -141,7 +141,7 @@ body {
 
 /* Extend background image to entire page */
 main {
-    background-image: url("/images/custom/profile-silhouette.png");
+    background-image: url("/images/custom/profile-silhouette4.png");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

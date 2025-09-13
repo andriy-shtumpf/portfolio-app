@@ -7,7 +7,8 @@ const HeroPage = () => {
             className="pt-28 lg:pt-36 min-h-screen bg-cover bg-center bg-no-repeat bg-fixed relative"
             id="home"
             style={{
-                backgroundImage: "url('/images/custom/profile-silhouette.png')",
+                backgroundImage:
+                    "url('/images/custom/profile-silhouette5.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center center",
                 backgroundAttachment: "fixed",
