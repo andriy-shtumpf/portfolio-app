@@ -6,46 +6,14 @@
     --font-inter: "inter", sans-serif;
 }
 
-.menu-btn {
-    @apply w-10 h-10 grid place-items-center bg-zinc-50/10 
-        rounded-xl ring-inset ring-1 ring-zinc-50/[0.02] 
-        backdrop-blur-2xl hover:bg-zinc-50/15 transition-[transform,background-color] active:scale-95
-        md:hidden;
-}
-
-.navbar {
-    @apply absolute top-full mt-2 right-0 min-w-40 p-2 bg-zinc-50/10 rounded-2xl
-        ring-inset ring-1 ring-zinc-50/5 scale-90 isolate blur-sm opacity-0 
-        invisible transition-[opacity,transform,filter] md:static md:flex
-        md:items-center md:mt-0 md:opacity-100 md:blur-none md:visible md:scale-100
-        backdrop-blur-2xl;
-}
-
-.navbar.active {
-    @apply scale-100 opacity-100 visible blur-none;
-}
-
-.navbar .active-box {
-    @apply absolute bg-zinc-50 rounded-lg -z-10 transition-[top,left] duration-500;
-}
-
-.nav-link {
-    @apply grid items-center h-9 px-4 text-sm font-medium tracking-wide text-zinc-50/50 hover:text-zinc-50
-        transition-colors duration-200  bg-zinc-50/5 hover:bg-zinc-50/10;
-}
-
-.nav-link.active {
-    @apply text-zinc-900 duration-500;
-}
+/* Legacy styles - replaced by tech enhancements below */
 
 .btn {
-    @apply max-w-max h-9 flex items-center gap-2 px-4 rounded-xl font-medium text-sm ring-1 ring-zinc-50/5
-    ring-inset transition-[background-color];
+    @apply max-w-max h-10 flex items-center gap-2 px-4 rounded-xl font-medium text-sm ring-1 ring-zinc-700/50
+    ring-inset transition-all duration-300 backdrop-blur-sm;
 }
 
-.btn-secondary {
-    @apply bg-zinc-50 text-zinc-900 active:bg-zinc-50/80 hidden md:flex;
-}
+/* Legacy btn-secondary - replaced by tech enhancement below */
 
 .btn .material-symbols-rounded {
     @apply text-[18px];
@@ -124,6 +92,28 @@ html {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+}
+
+/* Ensure fixed elements work with smooth scrolling */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+/* Force fixed positioning for header elements */
+.force-fixed {
+    position: fixed !important;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 body {
@@ -131,6 +121,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    padding-top: 0; /* Remove any default padding since header is fixed */
+    overflow-x: hidden;
 }
 
 /* Ensure the hero section background covers the full viewport */
@@ -147,9 +139,444 @@ main {
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
+    position: relative;
+    z-index: 1; /* Ensure main content stays below fixed header */
 }
 
 /* Add transparency to section backgrounds */
 .section {
     background: transparent;
+}
+
+/* Enhanced header animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-animate {
+    animation: slideDown 0.6s ease-out;
+}
+
+/* Glow effect for interactive elements */
+.glow-on-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-on-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(56, 189, 248, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.glow-on-hover:hover::before {
+    left: 100%;
+}
+
+/* Floating animation for availability indicator */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ===== TECH INDUSTRY ENHANCEMENTS ===== */
+
+/* Tech Header Styles */
+.tech-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Enhanced transparency when scrolling */
+.tech-header.scrolled {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    animation: headerFadeIn 0.7s ease-out;
+}
+
+/* Make header content slightly more transparent when scrolling */
+.tech-header.scrolled .logo,
+.tech-header.scrolled h1,
+.tech-header.scrolled .btn-secondary {
+    opacity: 0.9;
+    transition: opacity 0.5s ease-out;
+}
+
+@keyframes headerFadeIn {
+    from {
+        backdrop-filter: blur(20px) saturate(100%);
+        -webkit-backdrop-filter: blur(20px) saturate(100%);
+        background-color: rgba(9, 9, 11, 0.7);
+    }
+    to {
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        background-color: rgba(9, 9, 11, 0.2);
+    }
+}
+
+.tech-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(6, 182, 212, 0.03) 25%,
+        rgba(59, 130, 246, 0.03) 50%,
+        rgba(147, 51, 234, 0.03) 75%,
+        transparent 100%
+    );
+    animation: tech-sweep 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes tech-sweep {
+    0%,
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+
+/* Tech Grid Background Pattern */
+.bg-tech-grid {
+    background-image: linear-gradient(
+            rgba(6, 182, 212, 0.1) 1px,
+            transparent 1px
+        ),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Tech Mesh Background */
+.tech-mesh-bg {
+    background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(6, 182, 212, 0.1) 0%,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at 75% 75%,
+            rgba(59, 130, 246, 0.1) 0%,
+            transparent 50%
+        );
+}
+
+/* Progress Bar Glow Effect */
+.tech-glow {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3),
+        0 0 30px rgba(6, 182, 212, 0.1);
+}
+
+/* Ensure scroll progress bar stays fixed */
+.fixed.top-0.left-0.w-full.h-1 {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10001 !important;
+}
+
+/* Slow Spin Animation */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Tech Logo Container */
+.tech-logo-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-logo-container::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(6, 182, 212, 0.1) 90deg,
+        transparent 180deg,
+        rgba(59, 130, 246, 0.1) 270deg,
+        transparent 360deg
+    );
+    animation: tech-rotate 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tech-logo-container:hover::after {
+    opacity: 1;
+}
+
+@keyframes tech-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Tech Text Glow */
+.tech-text-glow {
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.3),
+        0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* Status Indicator Enhancements */
+.tech-status-indicator {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-status-indicator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(16, 185, 129, 0.2),
+        transparent
+    );
+    animation: status-scan 3s ease-in-out infinite;
+}
+
+@keyframes status-scan {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+/* CTA Button Tech Enhancements */
+.tech-cta-button {
+    position: relative;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tech-cta-button:hover {
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.3),
+        0 0 60px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Scanning Line Animation */
+@keyframes scan-line {
+    0% {
+        transform: translateY(0) scaleX(0);
+    }
+    50% {
+        transform: translateY(0) scaleX(1);
+    }
+    100% {
+        transform: translateY(0) scaleX(0);
+    }
+}
+
+.animate-scan-line {
+    animation: scan-line 1s ease-in-out;
+}
+
+/* Enhanced Menu Button */
+.menu-btn {
+    @apply w-11 h-11 grid place-items-center bg-zinc-900/60 
+        rounded-xl ring-inset ring-1 ring-cyan-400/20 
+        backdrop-blur-2xl hover:bg-zinc-800/60 hover:ring-cyan-400/40 
+        transition-all duration-300 active:scale-95
+        md:hidden hover:shadow-lg hover:shadow-cyan-400/20;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(6, 182, 212, 0.1) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.menu-btn:hover::before {
+    transform: translateX(100%);
+}
+
+/* Enhanced Navbar */
+.navbar {
+    @apply min-w-52 p-4 bg-zinc-950/90 rounded-2xl
+        ring-inset ring-1 ring-cyan-400/20 scale-90 isolate blur-sm opacity-0 
+        invisible transition-all duration-500 md:static md:flex
+        md:items-center md:mt-0 md:opacity-100 md:blur-none md:visible md:scale-100
+        backdrop-blur-2xl shadow-2xl shadow-cyan-500/10 border border-cyan-400/10;
+    z-index: 10000 !important;
+    transition: all 0.5s ease-out;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+    /* Mobile: Fixed positioning - stays in place during scroll */
+    position: fixed !important;
+    top: 5rem !important;
+    right: 1rem !important;
+}
+
+/* Desktop navbar positioning - stays within header */
+@media (min-width: 768px) {
+    .navbar {
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+    }
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(6, 182, 212, 0.05) 0%,
+        transparent 50%,
+        rgba(59, 130, 246, 0.05) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.navbar.active {
+    @apply scale-100 opacity-100 visible blur-none;
+}
+
+/* Navbar Scroll State */
+.navbar-scrolled {
+    @apply bg-zinc-950/15 backdrop-blur-xl border-cyan-400/15;
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08),
+        0 0 0 1px rgba(6, 182, 212, 0.05);
+    transition: all 0.5s ease-out;
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+}
+
+.navbar-scrolled::before {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
+}
+
+/* Enhanced navbar transparency on mobile when scrolled */
+@media (max-width: 768px) {
+    .navbar-scrolled {
+        @apply bg-zinc-950/20 backdrop-blur-2xl;
+        box-shadow: 0 6px 25px rgba(6, 182, 212, 0.12),
+            0 0 0 1px rgba(6, 182, 212, 0.08);
+    }
+}
+
+/* Enhanced Nav Links */
+.nav-link {
+    @apply flex items-center h-11 px-4 text-sm font-medium tracking-wide text-zinc-300 hover:text-cyan-300
+        transition-all duration-300 rounded-lg relative overflow-hidden;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    border-color: rgba(6, 182, 212, 0.2);
+    background: linear-gradient(
+        135deg,
+        rgba(6, 182, 212, 0.05) 0%,
+        rgba(59, 130, 246, 0.05) 100%
+    );
+}
+
+.nav-link.active {
+    @apply text-cyan-300 duration-500 font-semibold;
+    border-color: rgba(6, 182, 212, 0.3);
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+/* Enhanced Active Box */
+.navbar .active-box {
+    @apply absolute rounded-lg -z-10 transition-all duration-500 ease-out;
+    background: linear-gradient(
+        135deg,
+        rgba(6, 182, 212, 0.15) 0%,
+        rgba(59, 130, 246, 0.15) 100%
+    );
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Button Styles */
+.btn-secondary {
+    @apply bg-zinc-900/70 text-cyan-300 hover:bg-zinc-800/70 active:bg-zinc-900/70 
+    border border-cyan-400/30 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-400/20
+    hidden md:flex backdrop-blur-sm;
+    font-family: "Inter", monospace;
+    letter-spacing: 0.05em;
 }
