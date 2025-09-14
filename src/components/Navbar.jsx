@@ -80,12 +80,6 @@ const Navbar = ({ navOpen, scrolled }) => {
             icon: "person",
         },
         {
-            label: "Skills",
-            link: "#skills",
-            className: "nav-link",
-            icon: "code",
-        },
-        {
             label: "Projects",
             link: "#projects",
             className: "nav-link",

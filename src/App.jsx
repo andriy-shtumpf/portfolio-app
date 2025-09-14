@@ -9,7 +9,6 @@ import Header from "./components/Header";
 import HeroPage from "./components/Hero";
 import ProjectsPage from "./components/Projects";
 import ReviewPage from "./components/Review";
-import SkillSet from "./components/SkillSet";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -39,7 +38,7 @@ const App = () => {
             <main>
                 <HeroPage />
                 <AboutPage />
-                <SkillSet />
+                {/* <SkillSet /> */}
                 <ProjectsPage />
                 <ReviewPage />
                 <ContactPage />
