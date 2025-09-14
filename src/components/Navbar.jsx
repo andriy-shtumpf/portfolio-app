@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { updateNavbarActiveState } from "../utils/navbarUtils";
 
 const Navbar = ({ navOpen, scrolled }) => {
     const lastActiveLink = useRef();
@@ -46,34 +47,20 @@ const Navbar = ({ navOpen, scrolled }) => {
     const activeCurrentLink = (e) => {
         e.preventDefault();
 
-        if (lastActiveLink.current) {
-            lastActiveLink.current.classList.remove("active");
-        }
-
         // Get the actual link element (in case we clicked on a child element)
         const linkElement = e.currentTarget;
-        lastActiveLink.current = linkElement;
-        lastActiveLink.current.classList.add("active");
+        const targetHref = linkElement.getAttribute("href");
 
-        // Update active box position
-        setTimeout(() => {
-            if (activeBox.current && lastActiveLink.current) {
-                activeBox.current.style.top =
-                    lastActiveLink.current.offsetTop + "px";
-                activeBox.current.style.left =
-                    lastActiveLink.current.offsetLeft + "px";
-                activeBox.current.style.width =
-                    lastActiveLink.current.offsetWidth + "px";
-                activeBox.current.style.height =
-                    lastActiveLink.current.offsetHeight + "px";
-            }
-        }, 10);
+        if (targetHref) {
+            // Update lastActiveLink ref for internal tracking
+            lastActiveLink.current = linkElement;
 
-        // Navigate to the section
-        const targetId = linkElement.getAttribute("href");
-        if (targetId) {
+            // Use the utility function to handle active state and navigation
+            updateNavbarActiveState(targetHref, 10);
+
+            // Navigate to the section
             document
-                .querySelector(targetId)
+                .querySelector(targetHref)
                 ?.scrollIntoView({ behavior: "smooth" });
         }
     };
@@ -93,14 +80,8 @@ const Navbar = ({ navOpen, scrolled }) => {
             icon: "person",
         },
         {
-            label: "Skills",
-            link: "#skills",
-            className: "nav-link",
-            icon: "code",
-        },
-        {
-            label: "Experience",
-            link: "#experience",
+            label: "Projects",
+            link: "#projects",
             className: "nav-link",
             icon: "work",
         },
