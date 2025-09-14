@@ -38,9 +38,9 @@ const works = [
     },
 ];
 
-const ExperiencePage = () => {
+const ProjectsPage = () => {
     return (
-        <section id="experience" className="section">
+        <section id="projects" className="section">
             <div className="container">
                 <h2 className="headline-2 mb-8 reveal-up">My Projects</h2>
                 <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] reveal-up">
@@ -98,4 +98,4 @@ const ExperiencePage = () => {
     );
 };
 
-export default ExperiencePage;
+export default ProjectsPage;

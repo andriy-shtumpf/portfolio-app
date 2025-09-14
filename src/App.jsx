@@ -4,10 +4,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ReactLenis from "lenis/react";
 import AboutPage from "./components/About";
 import ContactPage from "./components/Contact";
-import ExperiencePage from "./components/Experience";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HeroPage from "./components/Hero";
+import ProjectsPage from "./components/Projects";
 import ReviewPage from "./components/Review";
 import SkillSet from "./components/SkillSet";
 
@@ -40,7 +40,7 @@ const App = () => {
                 <HeroPage />
                 <AboutPage />
                 <SkillSet />
-                <ExperiencePage />
+                <ProjectsPage />
                 <ReviewPage />
                 <ContactPage />
                 <Footer />
