@@ -1,5 +1,5 @@
 const skillItem = [
-    // Languages
+    // Core Languages
     {
         imgSrc: "/images/java.svg",
         label: "Java",
@@ -26,7 +26,7 @@ const skillItem = [
         desc: "Database",
     },
 
-    // Frameworks & Libraries
+    // Backend Frameworks
     {
         imgSrc: "/images/spring.svg",
         label: "Spring Boot",
@@ -38,30 +38,17 @@ const skillItem = [
         desc: "Microservices",
     },
     {
-        imgSrc: "/images/spring-security.svg",
-        label: "Spring Security",
-        desc: "Authentication",
-    },
-    {
-        imgSrc: "/images/spring-webflux.svg",
-        label: "Spring WebFlux",
-        desc: "Reactive",
-    },
-    {
         imgSrc: "/images/hibernate.svg",
         label: "Hibernate",
         desc: "ORM",
-    },
-    {
-        imgSrc: "/images/jpa.svg",
-        label: "JPA",
-        desc: "Persistence",
     },
     {
         imgSrc: "/images/micronaut.svg",
         label: "Micronaut",
         desc: "Framework",
     },
+
+    // Frontend
     {
         imgSrc: "/images/react.svg",
         label: "React.js",
@@ -78,7 +65,7 @@ const skillItem = [
         desc: "State Management",
     },
 
-    // Cloud & DevOps
+    // Cloud Platforms
     {
         imgSrc: "/images/amazonwebservices.svg",
         label: "AWS",
@@ -89,6 +76,8 @@ const skillItem = [
         label: "Microsoft Azure",
         desc: "Cloud Platform",
     },
+
+    // DevOps & Tools
     {
         imgSrc: "/images/docker.svg",
         label: "Docker",
@@ -110,22 +99,12 @@ const skillItem = [
         desc: "Automation",
     },
     {
-        imgSrc: "/images/maven.svg",
-        label: "Maven",
-        desc: "Build Tool",
-    },
-    {
-        imgSrc: "/images/gradle.svg",
-        label: "Gradle",
-        desc: "Build Tool",
-    },
-    {
         imgSrc: "/images/terraform.svg",
         label: "Terraform",
         desc: "Infrastructure",
     },
 
-    // Databases & Caching
+    // Databases
     {
         imgSrc: "/images/postgresql.svg",
         label: "PostgreSQL",
@@ -142,90 +121,40 @@ const skillItem = [
         desc: "Caching",
     },
     {
-        imgSrc: "/images/neo4j.svg",
-        label: "Neo4j",
-        desc: "Graph DB",
-    },
-    {
         imgSrc: "/images/apachekafka.svg",
         label: "Apache Kafka",
         desc: "Streaming",
     },
 
-    // Architecture & Design
+    // Architecture
     {
         imgSrc: "/images/microservices.svg",
         label: "Microservices",
         desc: "Architecture",
     },
     {
-        imgSrc: "/images/cloud-native.svg",
-        label: "Cloud-Native",
-        desc: "Design",
-    },
-    {
         imgSrc: "/images/restful-apis.svg",
         label: "RESTful APIs",
         desc: "Web Services",
     },
-    {
-        imgSrc: "/images/distributed-systems.svg",
-        label: "Distributed Systems",
-        desc: "Architecture",
-    },
-    {
-        imgSrc: "/images/event-driven.svg",
-        label: "Event-Driven",
-        desc: "Architecture",
-    },
-    {
-        imgSrc: "/images/oauth.svg",
-        label: "OAuth 2.0",
-        desc: "Security",
-    },
 
-    // Testing & QA
+    // Testing
     {
         imgSrc: "/images/junit.svg",
         label: "JUnit",
         desc: "Testing",
     },
     {
-        imgSrc: "/images/mockito.svg",
-        label: "Mockito",
-        desc: "Mocking",
-    },
-    {
-        imgSrc: "/images/cucumber.svg",
-        label: "Cucumber",
-        desc: "BDD Testing",
-    },
-    {
         imgSrc: "/images/jest.svg",
         label: "Jest",
         desc: "JS Testing",
     },
-    {
-        imgSrc: "/images/selenium.svg",
-        label: "Selenium",
-        desc: "Automation",
-    },
 
-    // Tools
+    // Development Tools
     {
         imgSrc: "/images/git.svg",
         label: "Git",
         desc: "Version Control",
-    },
-    {
-        imgSrc: "/images/jira.svg",
-        label: "JIRA",
-        desc: "Project Mgmt",
-    },
-    {
-        imgSrc: "/images/confluence.svg",
-        label: "Confluence",
-        desc: "Documentation",
     },
     {
         imgSrc: "/images/intellij.svg",
@@ -239,16 +168,18 @@ const skillItem = [
     },
 ];
 
-const SkillSet = ({
+import SkillIcon from "./SkillIcon";
+
+const SkillSetOptimized = ({
     asSection = true,
     showHeader = true,
-    gridCols = "grid-cols-4 md:grid-cols-5 lg:grid-cols-6",
-    textSize = "text-md",
-    descSize = "text-sm",
+    gridCols = "grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8",
+    textSize = "text-sm",
+    descSize = "text-xs",
     centerText = false,
     className = "",
 }) => {
-    const content = (
+    const skillSetContent = (
         <>
             {showHeader && (
                 <div className={centerText ? "text-center mb-8" : "mb-8"}>
@@ -267,32 +198,21 @@ const SkillSet = ({
                 </div>
             )}
 
-            <div className={`grid gap-4 ${gridCols} ${className}`}>
+            <div className={`grid gap-3 ${gridCols} ${className}`}>
                 {skillItem.map((item, index) => (
                     <div
                         key={index}
-                        className="bg-zinc-600/30 backdrop-blur-sm ring-3 ring-zinc-50/10 p-4 
+                        className="bg-zinc-600/30 backdrop-blur-sm ring-1 ring-zinc-50/10 p-3 
                         rounded-lg hover:bg-zinc-800/40 transition-colors group reveal-up"
                     >
-                        <img
+                        <SkillIcon
                             src={item.imgSrc}
                             alt={item.label}
-                            className={`w-12 h-12 mb-2 ${
+                            className={`w-10 h-10 mb-2 ${
                                 centerText ? "mx-auto" : ""
                             }`}
-                            onError={(e) => {
-                                e.target.style.display = "none";
-                                e.target.nextSibling.style.display = "flex";
-                            }}
+                            centerText={centerText}
                         />
-                        <div
-                            className={`w-12 h-12 mb-2 bg-gradient-to-br from-sky-400/20 to-purple-400/20 
-                                       rounded-lg flex items-center justify-center text-white font-bold text-xs
-                                       ${centerText ? "mx-auto" : ""}`}
-                            style={{ display: "none" }}
-                        >
-                            {item.label.substring(0, 2).toUpperCase()}
-                        </div>
                         <h3
                             className={`${textSize} font-semibold ${
                                 centerText ? "text-center" : ""
@@ -315,13 +235,13 @@ const SkillSet = ({
 
     if (asSection) {
         return (
-            <section id="skills" className="section">
-                <div className="container">{content}</div>
+            <section id="skill" className="section">
+                <div className="container">{skillSetContent}</div>
             </section>
         );
     }
 
-    return content;
+    return skillSetContent;
 };
 
-export default SkillSet;
+export default SkillSetOptimized;

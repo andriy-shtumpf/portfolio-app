@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="distributedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9c27b0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b1fa2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="url(#distributedGradient)"/>
+  <circle cx="30" cy="30" r="12" fill="white" opacity="0.9"/>
+  <circle cx="98" cy="30" r="12" fill="white" opacity="0.9"/>
+  <circle cx="30" cy="98" r="12" fill="white" opacity="0.9"/>
+  <circle cx="98" cy="98" r="12" fill="white" opacity="0.9"/>
+  <circle cx="64" cy="64" r="15" fill="white" opacity="1"/>
+  <path d="M42 30 L52 64 M76 64 L86 30 M30 42 L52 52 M76 76 L30 86 M64 49 L98 42 M98 86 L76 52" stroke="white" stroke-width="2" opacity="0.7"/>
+  <circle cx="30" cy="30" r="4" fill="#9c27b0"/>
+  <circle cx="98" cy="30" r="4" fill="#9c27b0"/>
+  <circle cx="30" cy="98" r="4" fill="#9c27b0"/>
+  <circle cx="98" cy="98" r="4" fill="#9c27b0"/>
+  <circle cx="64" cy="64" r="5" fill="#9c27b0"/>
+</svg>
