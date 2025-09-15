@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="springSecurityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6db33f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a7c2a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="url(#springSecurityGradient)"/>
+  <path d="M64 25 C54 25 46 33 46 43 L46 53 L40 53 C36 53 33 56 33 60 L33 95 C33 99 36 102 40 102 L88 102 C92 102 95 99 95 95 L95 60 C95 56 92 53 88 53 L82 53 L82 43 C82 33 74 25 64 25 Z M64 35 C68 35 72 39 72 43 L72 53 L56 53 L56 43 C56 39 60 35 64 35 Z" fill="white"/>
+  <circle cx="64" cy="75" r="6" fill="#6db33f"/>
+  <rect x="61" y="78" width="6" height="12" fill="#6db33f"/>
+</svg>

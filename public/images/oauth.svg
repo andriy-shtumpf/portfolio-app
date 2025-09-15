@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="oauthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4caf50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#388e3c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="url(#oauthGradient)"/>
+  <circle cx="64" cy="45" r="18" fill="white" opacity="0.9"/>
+  <path d="M64 27 C54 27 46 35 46 45 C46 55 54 63 64 63 C74 63 82 55 82 45 C82 35 74 27 64 27 Z M64 35 C69 35 74 40 74 45 C74 50 69 55 64 55 C59 55 54 50 54 45 C54 40 59 35 64 35 Z" fill="#4caf50"/>
+  <rect x="35" y="70" width="58" height="35" rx="8" fill="white" opacity="0.9"/>
+  <circle cx="64" cy="87" r="5" fill="#4caf50"/>
+  <rect x="61" y="90" width="6" height="10" fill="#4caf50"/>
+  <text x="64" y="115" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">OAuth 2.0</text>
+</svg>

@@ -1,4 +1,4 @@
-import SkillSet from "./SkillSet";
+import SkillSetOptimized from "./SkillSetOptimized";
 
 const aboutItems = [
     {
@@ -13,10 +13,10 @@ const aboutItems = [
 
 const AboutPage = () => {
     return (
-        <section id="about" className="h-screen flex flex-col py-20">
+        <section id="about" className="min-h-screen flex flex-col py-20">
             <div className="container flex-1 flex flex-col">
-                {/* Main About Content - Takes up 2/3 of the space */}
-                <div className="flex-1 flex items-center justify-center h-full relative">
+                {/* Main About Content - Takes up 70% of the space */}
+                <div className="flex-[0.7] flex items-center justify-center relative mb-8">
                     {/* Unique Transparent Blurry Background */}
                     <div className="absolute inset-0 overflow-hidden">
                         {/* Primary Glass Morphism Background */}
@@ -41,8 +41,8 @@ const AboutPage = () => {
                     </div>
 
                     <div className="w-full h-full relative z-10 flex flex-col">
-                        {/* Grid Layout: Text + Photo - Full width and 80% height */}
-                        <div className="w-full h-4/5 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                        {/* Grid Layout: Text + Photo - Full width and full height */}
+                        <div className="w-full h-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                             {/* Left Content - Enhanced Text Section */}
                             <div className="h-full flex">
                                 <div className="p-8 rounded-3xl md:p-12 reveal-up flex flex-col w-full h-full overflow-y-auto scrollbar-thin scrollbar-thumb-sky-400/20 scrollbar-track-transparent">
@@ -142,8 +142,8 @@ const AboutPage = () => {
                             </div>
                         </div>
 
-                        {/* Stats and Logo Section - Remaining 20% height */}
-                        <div className="h-1/5 flex items-center justify-center">
+                        {/* Stats and Logo Section */}
+                        <div className="flex items-center justify-center mt-6">
                             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 p-6 rounded-2xl">
                                 {aboutItems.map(({ label, number }, key) => (
                                     <div key={key} className="text-center">
@@ -180,12 +180,12 @@ const AboutPage = () => {
                     </div>
                 </div>
 
-                {/* Skills Section - Takes up 1/3 of the space at the bottom */}
-                <div className="flex-1 flex flex-col justify-center max-h-[30vh]">
-                    <SkillSet
+                {/* Skills Section - Takes up remaining space */}
+                <div className="flex-[0.3] flex flex-col justify-start pt-8">
+                    <SkillSetOptimized
                         asSection={false}
                         showHeader={true}
-                        gridCols="grid-cols-4 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-8"
+                        gridCols="grid-cols-4 md:grid-cols-5 lg:grid-cols-8 xl:grid-cols-10"
                         textSize="text-sm"
                         descSize="text-xs"
                         centerText={true}

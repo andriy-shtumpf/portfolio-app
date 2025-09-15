@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="micronautGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="16" fill="url(#micronautGradient)"/>
+  <circle cx="64" cy="40" r="15" fill="white" opacity="0.9"/>
+  <circle cx="40" cy="70" r="12" fill="white" opacity="0.7"/>
+  <circle cx="88" cy="70" r="12" fill="white" opacity="0.7"/>
+  <circle cx="64" cy="95" r="10" fill="white" opacity="0.5"/>
+  <path d="M64 25 L64 55 M49 40 L79 40 M52 58 L76 82 M76 58 L52 82" stroke="white" stroke-width="2" opacity="0.8"/>
+  <text x="64" y="115" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="white">MICRONAUT</text>
+</svg>
