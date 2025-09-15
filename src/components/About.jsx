@@ -13,10 +13,10 @@ const aboutItems = [
 
 const AboutPage = () => {
     return (
-        <section id="about" className="min-h-screen flex flex-col py-20">
+        <section id="about" className="h-screen flex flex-col py-20">
             <div className="container flex-1 flex flex-col">
                 {/* Main About Content - Takes up 2/3 of the space */}
-                <div className="flex-1 flex items-center justify-center min-h-[60vh] relative">
+                <div className="flex-1 flex items-center justify-center h-full relative">
                     {/* Unique Transparent Blurry Background */}
                     <div className="absolute inset-0 overflow-hidden">
                         {/* Primary Glass Morphism Background */}
@@ -42,107 +42,102 @@ const AboutPage = () => {
 
                     <div className="w-full h-full relative z-10 flex flex-col">
                         {/* Grid Layout: Text + Photo - Full width and 80% height */}
-                        <div className="w-full h-4/5 flex">
-                            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch w-full h-full">
-                                {/* Left Content - Enhanced Text Section */}
-                                <div className="flex w-full h-full">
-                                    <div className="p-8 rounded-3xl md:p-12 reveal-up flex flex-col w-full h-full overflow-y-auto scrollbar-thin scrollbar-thumb-sky-400/20 scrollbar-track-transparent">
-                                        {/* Header Section */}
-                                        <div className="mb-8 flex-shrink-0">
-                                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                                                Full Stack Engineer & AI
-                                                Innovator
-                                            </h2>
-                                            <div className="w-20 h-1.5 bg-gradient-to-r from-sky-400 to-purple-400 rounded-full"></div>
-                                        </div>
+                        <div className="w-full h-4/5 grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                            {/* Left Content - Enhanced Text Section */}
+                            <div className="h-full flex">
+                                <div className="p-8 rounded-3xl md:p-12 reveal-up flex flex-col w-full h-full overflow-y-auto scrollbar-thin scrollbar-thumb-sky-400/20 scrollbar-track-transparent">
+                                    {/* Header Section */}
+                                    <div className="mb-6 flex-shrink-0">
+                                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
+                                            Full Stack Engineer & AI Innovator
+                                        </h2>
+                                        <div className="w-16 h-1 bg-gradient-to-r from-sky-400 to-purple-400 rounded-full"></div>
+                                    </div>
 
-                                        {/* Main Description */}
-                                        <div className="space-y-6 flex-1">
-                                            <p className="text-zinc-200 text-lg md:text-xl lg:text-2xl leading-relaxed font-medium">
-                                                I specialize in{" "}
-                                                <span className="text-sky-400 font-semibold">
-                                                    transforming legacy systems
-                                                </span>{" "}
-                                                into high-velocity, scalable
-                                                microservice architectures. My
-                                                expertise spans the complete
-                                                software lifecycle—from
-                                                architectural design to
-                                                deployment automation.
-                                            </p>
+                                    {/* Main Description */}
+                                    <div className="space-y-4 flex-1">
+                                        <p className="text-zinc-200 text-base md:text-lg lg:text-xl leading-relaxed font-medium">
+                                            I specialize in{" "}
+                                            <span className="text-sky-400 font-semibold">
+                                                transforming legacy systems
+                                            </span>{" "}
+                                            into high-velocity, scalable
+                                            microservice architectures. My
+                                            expertise spans the complete
+                                            software lifecycle—from
+                                            architectural design to deployment
+                                            automation.
+                                        </p>
 
-                                            <p className="text-zinc-300 text-base md:text-lg lg:text-xl leading-relaxed">
-                                                With deep knowledge in{" "}
-                                                <span className="text-purple-400 font-semibold">
-                                                    React, Next.js, and Spring
-                                                    Boot
-                                                </span>
-                                                , I pioneer automated CI/CD
-                                                pipelines that dramatically
-                                                reduce deployment times while
-                                                elevating code quality. I thrive
-                                                on solving complex technical
-                                                challenges that deliver
-                                                measurable business impact.
-                                            </p>
+                                        <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
+                                            With deep knowledge in{" "}
+                                            <span className="text-purple-400 font-semibold">
+                                                React, Next.js, and Spring Boot
+                                            </span>
+                                            , I pioneer automated CI/CD
+                                            pipelines that dramatically reduce
+                                            deployment times while elevating
+                                            code quality. I thrive on solving
+                                            complex technical challenges that
+                                            deliver measurable business impact.
+                                        </p>
 
-                                            <p className="text-zinc-300 text-base md:text-lg lg:text-xl leading-relaxed">
-                                                My current passion lies in the{" "}
-                                                <span className="text-emerald-400 font-semibold">
-                                                    AI frontier
-                                                </span>
-                                                —leveraging multimodal LLMs and
-                                                intelligent agents to create
-                                                automated data processing
-                                                workflows. As a polyglot fluent
-                                                in five languages, I excel at
-                                                fostering global collaboration
-                                                and mentoring teams.
-                                            </p>
-                                        </div>
+                                        <p className="text-zinc-300 text-sm md:text-base lg:text-lg leading-relaxed">
+                                            My current passion lies in the{" "}
+                                            <span className="text-emerald-400 font-semibold">
+                                                AI frontier
+                                            </span>
+                                            —leveraging multimodal LLMs and
+                                            intelligent agents to create
+                                            automated data processing workflows.
+                                            As a polyglot fluent in five
+                                            languages, I excel at fostering
+                                            global collaboration and mentoring
+                                            teams.
+                                        </p>
                                     </div>
                                 </div>
+                            </div>
 
-                                {/* Right Content - Enhanced Photo Section */}
-                                <div className="flex justify-center lg:justify-end w-full h-full">
-                                    <div className="relative group w-full h-full flex items-center justify-center">
-                                        {/* Enhanced Decorative Background Elements */}
-                                        <div
-                                            className="absolute -inset-6 bg-gradient-to-r from-sky-400/15 via-purple-400/10 to-emerald-400/15 
-                                                      rounded-[90px] blur-3xl opacity-50 group-hover:opacity-70 transition-all duration-700 animate-pulse"
+                            {/* Right Content - Enhanced Photo Section */}
+                            <div className="h-full flex justify-center lg:justify-end items-start">
+                                <div className="relative group w-full h-full flex items-start justify-center pt-8 md:pt-12">
+                                    {/* Enhanced Decorative Background Elements */}
+                                    <div
+                                        className="absolute -inset-6 bg-gradient-to-r from-sky-400/15 via-purple-400/10 to-emerald-400/15 
+                                                  rounded-[90px] blur-3xl opacity-50 group-hover:opacity-70 transition-all duration-700 animate-pulse"
+                                    />
+
+                                    <div
+                                        className="absolute -inset-3 bg-gradient-to-br from-sky-400/8 via-transparent to-purple-400/8 
+                                                  rounded-[75px] blur-xl animate-pulse delay-500"
+                                    />
+
+                                    {/* Main Photo Container with Enhanced Glass Effect */}
+                                    <figure
+                                        className="relative w-full max-w-[420px] lg:max-w-[480px] xl:max-w-[520px] 
+                                                     bg-gradient-to-t from-sky-400/20 via-sky-400/10 to-transparent 
+                                                     rounded-[60px] overflow-hidden backdrop-blur-lg 
+                                                     ring-2 ring-white/10 group-hover:ring-sky-400/40 
+                                                     transition-all duration-700 transform group-hover:scale-[1.02]
+                                                     shadow-2xl shadow-sky-400/10"
+                                    >
+                                        {/* Photo */}
+                                        <img
+                                            src="/images/custom/personal_photo.jpg"
+                                            width={650}
+                                            height={800}
+                                            alt="Andriy Shtumpf"
+                                            className="w-full h-auto opacity-90 group-hover:opacity-100 
+                                                     transition-opacity duration-700"
                                         />
 
-                                        <div
-                                            className="absolute -inset-3 bg-gradient-to-br from-sky-400/8 via-transparent to-purple-400/8 
-                                                      rounded-[75px] blur-xl animate-pulse delay-500"
-                                        />
+                                        {/* Enhanced Overlay Gradient */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 via-transparent to-purple-900/10" />
 
-                                        {/* Main Photo Container with Enhanced Glass Effect */}
-                                        <figure
-                                            className="relative w-full max-w-[420px] lg:max-w-[480px] xl:max-w-[520px] 
-                                                         bg-gradient-to-t from-sky-400/20 via-sky-400/10 to-transparent 
-                                                         rounded-[60px] overflow-hidden backdrop-blur-lg 
-                                                         ring-2 ring-white/10 group-hover:ring-sky-400/40 
-                                                         transition-all duration-700 transform group-hover:scale-[1.02]
-                                                         shadow-2xl shadow-sky-400/10"
-                                        >
-                                            {/* Photo */}
-                                            <img
-                                                src="/images/custom/personal_photo.jpg"
-                                                width={650}
-                                                height={800}
-                                                alt="Andriy Shtumpf"
-                                                className="w-full h-auto opacity-90 group-hover:opacity-100 
-                                                         transition-opacity duration-700"
-                                            />
-
-                                            {/* Enhanced Overlay Gradient */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 via-transparent to-purple-900/10" />
-
-                                            {/* Subtle Inner Glow */}
-                                            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[60px]" />
-                                        </figure>
-                                    </div>
+                                        {/* Subtle Inner Glow */}
+                                        <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[60px]" />
+                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +181,7 @@ const AboutPage = () => {
                 </div>
 
                 {/* Skills Section - Takes up 1/3 of the space at the bottom */}
-                <div className="min-h-[30vh] flex flex-col justify-center">
+                <div className="flex-1 flex flex-col justify-center max-h-[30vh]">
                     <SkillSet
                         asSection={false}
                         showHeader={true}
