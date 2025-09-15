@@ -1,5 +1,4 @@
 import { scrollToSectionAndUpdateNav } from "../utils/navbarUtils";
-import ButtonPrimary from "./ButtonPrimary";
 
 const HeroPage = () => {
     return (
@@ -62,36 +61,60 @@ const HeroPage = () => {
                     {/* Content positioned at bottom third of the page */}
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         {/* Main Headline - Enhanced Positioning */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 backdrop-blur-sm bg-black/20 p-6 rounded-2xl border border-white/10">
                             <h2
-                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold max-w-[25ch] sm:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] mx-auto
-                                         leading-[1.1] lg:leading-[1.05] tech-text-glow"
+                                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold max-w-[25ch] sm:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] mx-auto
+                                         leading-[1.1] lg:leading-[1.05] text-white/90 tech-text-glow backdrop-blur-sm"
                             >
                                 I build mission-critical software backbone for
-                                successful products.
+                                <span className="text-sky-400/90 tech-text-glow">
+                                    {" "}
+                                    successful products.
+                                </span>
                             </h2>
 
                             {/* Subtitle */}
-                            <p className="text-lg text-zinc-300 max-w-[45ch] mx-auto leading-relaxed">
-                                Full-stack developer specializing in scalable
-                                web applications and modern tech solutions.
+                            <p className="text-base text-zinc-200/80 max-w-[45ch] mx-auto leading-relaxed font-medium backdrop-blur-sm">
+                                Full-stack developer specializing in
+                                <span className="text-sky-300/90">
+                                    {" "}
+                                    scalable web applications
+                                </span>{" "}
+                                and
+                                <span className="text-sky-300/90">
+                                    {" "}
+                                    modern tech solutions.
+                                </span>
                             </p>
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <ButtonPrimary
-                                label="Download Resume"
-                                icon="download"
-                            />
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
                             <button
-                                className="btn btn-outline glow-on-hover"
+                                className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-5 md:py-2.5 lg:px-5 lg:py-2.5 xl:px-8 xl:py-4 
+                                             bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-400 hover:to-sky-500 
+                                             text-white font-semibold rounded-lg transition-all duration-300 
+                                             shadow-lg shadow-sky-500/25 hover:shadow-sky-400/40 hover:scale-105
+                                             text-xs sm:text-xs md:text-xs lg:text-xs xl:text-base
+                                             flex items-center gap-2 tech-glow border border-sky-400/30"
+                            >
+                                <span className="material-symbols-rounded text-base">
+                                    download
+                                </span>
+                                <span>Download Resume</span>
+                            </button>
+                            <button
+                                className="px-4 py-2 sm:px-5 sm:py-2.5 md:px-5 md:py-2.5 lg:px-5 lg:py-2.5 xl:px-8 xl:py-4
+                                         border-2 border-sky-400/50 text-sky-300 hover:text-white hover:bg-sky-400/10
+                                         font-semibold rounded-lg transition-all duration-300
+                                         text-xs sm:text-xs md:text-xs lg:text-xs xl:text-base
+                                         flex items-center gap-2 hover:border-sky-300 hover:scale-105 tech-glow"
                                 onClick={() => {
                                     scrollToSectionAndUpdateNav("projects");
                                 }}
                             >
                                 <span>View Projects</span>
-                                <span className="material-symbols-rounded">
+                                <span className="material-symbols-rounded text-base">
                                     arrow_forward
                                 </span>
                             </button>
