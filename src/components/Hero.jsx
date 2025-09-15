@@ -64,11 +64,11 @@ const HeroPage = () => {
                         {/* Main Headline - Enhanced Positioning */}
                         <div className="space-y-6">
                             <h2
-                                className="headline-1 max-w-[18ch] sm:max-w-[22ch] lg:max-w-[20ch] xl:max-w-[22ch] mx-auto
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold max-w-[25ch] sm:max-w-[30ch] lg:max-w-[35ch] xl:max-w-[40ch] mx-auto
                                          leading-[1.1] lg:leading-[1.05] tech-text-glow"
                             >
-                                I build the mission-critical software backbone
-                                for successful products.
+                                I build mission-critical software backbone for
+                                successful products.
                             </h2>
 
                             {/* Subtitle */}
