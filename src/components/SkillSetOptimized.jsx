@@ -11,6 +11,21 @@ const skillItem = [
         desc: "ES6+",
     },
     {
+        imgSrc: "/images/react.svg",
+        label: "React.js",
+        desc: "Frontend",
+    },
+    {
+        imgSrc: "/images/nextjs.svg",
+        label: "Next.js",
+        desc: "React Framework",
+    },
+    {
+        imgSrc: "/images/redux.svg",
+        label: "Redux",
+        desc: "State Management",
+    },
+    {
         imgSrc: "/images/python.svg",
         label: "Python",
         desc: "Programming",
@@ -46,23 +61,6 @@ const skillItem = [
         imgSrc: "/images/micronaut.svg",
         label: "Micronaut",
         desc: "Framework",
-    },
-
-    // Frontend
-    {
-        imgSrc: "/images/react.svg",
-        label: "React.js",
-        desc: "Frontend",
-    },
-    {
-        imgSrc: "/images/nextjs.svg",
-        label: "Next.js",
-        desc: "React Framework",
-    },
-    {
-        imgSrc: "/images/redux.svg",
-        label: "Redux",
-        desc: "State Management",
     },
 
     // Cloud Platforms
