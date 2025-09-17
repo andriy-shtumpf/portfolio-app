@@ -18,7 +18,7 @@ export const ThemeProvider = ({ children }) => {
             return savedTheme;
         }
 
-        // Check system preference
+        // Check system preference - prioritize dark mode as default
         if (
             window.matchMedia &&
             window.matchMedia("(prefers-color-scheme: light)").matches
@@ -26,6 +26,7 @@ export const ThemeProvider = ({ children }) => {
             return "light";
         }
 
+        // Default to dark mode
         return "dark";
     });
 
