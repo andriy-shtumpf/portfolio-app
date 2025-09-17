@@ -12,21 +12,14 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(() => {
-        // Check localStorage first, then system preference
+        // Check localStorage first - user's explicit choice takes priority
         const savedTheme = localStorage.getItem("portfolio-theme");
-        if (savedTheme) {
+        if (savedTheme && (savedTheme === "dark" || savedTheme === "light")) {
             return savedTheme;
         }
 
-        // Check system preference - prioritize dark mode as default
-        if (
-            window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: light)").matches
-        ) {
-            return "light";
-        }
-
-        // Default to dark mode
+        // Default to dark mode and save it to localStorage
+        localStorage.setItem("portfolio-theme", "dark");
         return "dark";
     });
 
@@ -34,12 +27,17 @@ export const ThemeProvider = ({ children }) => {
         // Save theme to localStorage
         localStorage.setItem("portfolio-theme", theme);
 
-        // Apply theme to document
+        // Apply theme to document immediately
         document.documentElement.setAttribute("data-theme", theme);
 
         // Update body class for immediate styling
         document.body.className =
             theme === "dark" ? "theme-dark" : "theme-light";
+
+        // Force a repaint to ensure theme is applied
+        document.body.style.display = "none";
+        document.body.offsetHeight; // Trigger reflow
+        document.body.style.display = "";
     }, [theme]);
 
     const toggleTheme = () => {
