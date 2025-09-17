@@ -168,7 +168,7 @@ const skillItem = [
 
 import SkillIcon from "./SkillIcon";
 
-const SkillSetOptimized = ({
+const Skills = ({
     asSection = true,
     showHeader = true,
     gridCols = "grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8",
@@ -242,4 +242,4 @@ const SkillSetOptimized = ({
     return skillSetContent;
 };
 
-export default SkillSetOptimized;
+export default Skills;

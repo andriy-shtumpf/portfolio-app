@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import ThemeToggle from "./ThemeToggle";
+import Logo from "./header/Logo";
+import Navigation from "./header/Navigation";
+import StatusBadge from "./header/StatusBadge";
 
 const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -89,131 +90,17 @@ const Header = () => {
             >
                 <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center md:px-6">
                     {/* Premium Logo with Brand Name */}
-                    <div className="flex items-center gap-4 group">
-                        <div className="relative">
-                            {/* Premium Glow Effects */}
-                            <div className="absolute inset-0 rounded-xl">
-                                <div
-                                    className="absolute inset-0 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"
-                                    style={{
-                                        background: "var(--gradient-primary)",
-                                        opacity: 0.2,
-                                    }}
-                                ></div>
-                                <div
-                                    className="absolute inset-0 border rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow"
-                                    style={{
-                                        borderColor: "var(--accent-primary)",
-                                    }}
-                                ></div>
-                            </div>
-
-                            <a
-                                href="/"
-                                className="logo relative block w-14 h-14 p-1 rounded-xl border transition-all duration-500 hover:scale-110 tech-logo-container"
-                                style={{
-                                    background: "var(--gradient-secondary)",
-                                    borderColor: "var(--border-primary)",
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.target.style.borderColor =
-                                        "var(--accent-primary)";
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.target.style.borderColor =
-                                        "var(--border-primary)";
-                                }}
-                            >
-                                <img
-                                    src="/images/custom/logo/logo-classic.png"
-                                    alt="logo"
-                                    className="relative z-10 filter brightness-110 w-full h-full object-cover rounded-lg"
-                                />
-                                {/* Premium Grid Overlay */}
-                                <div className="absolute inset-0 bg-tech-grid rounded-xl"></div>
-                            </a>
-                        </div>
-
-                        <div className="hidden sm:block">
-                            <h1
-                                className="text-lg font-bold bg-clip-text text-transparent tech-text-glow"
-                                style={{
-                                    background: "var(--gradient-primary)",
-                                    WebkitBackgroundClip: "text",
-                                    WebkitTextFillColor: "transparent",
-                                    backgroundClip: "text",
-                                }}
-                            >
-                                Portfolio
-                            </h1>
-                            <div className="flex items-center gap-2 -mt-1">
-                                <div
-                                    className="w-1 h-1 rounded-full animate-pulse"
-                                    style={{
-                                        backgroundColor:
-                                            "var(--accent-primary)",
-                                    }}
-                                ></div>
-                                <p
-                                    className="text-xs font-mono tracking-wider"
-                                    style={{ color: "var(--text-tertiary)" }}
-                                >
-                                    DEVELOPER
-                                </p>
-                                <div
-                                    className="w-1 h-1 rounded-full animate-pulse delay-75"
-                                    style={{
-                                        backgroundColor:
-                                            "var(--accent-secondary)",
-                                    }}
-                                ></div>
-                            </div>
-                        </div>
-                    </div>
+                    <Logo />
 
                     {/* Navigation Menu */}
-                    <div className="relative md:justify-self-center flex items-center gap-3">
-                        {/* Menu Button */}
-                        <button className="menu-btn" onClick={handleIsOpen}>
-                            <span className="material-symbols-rounded">
-                                {navOpen ? "close" : "menu"}
-                            </span>
-                        </button>
-                        <Navbar navOpen={navOpen} scrolled={scrolled} />
-                    </div>
+                    <Navigation
+                        navOpen={navOpen}
+                        handleIsOpen={handleIsOpen}
+                        scrolled={scrolled}
+                    />
 
                     {/* Theme Toggle and Status Badge */}
-                    <div className="hidden lg:flex items-center gap-3">
-                        {/* Theme Toggle Button - Outside overflow container */}
-                        <ThemeToggle />
-
-                        {/* Status Badge */}
-                        <div className="flex items-center gap-3 tech-status-indicator">
-                            <figure className="w-10 h-10 rounded-xl overflow-hidden p-1">
-                                <img
-                                    src="/images/custom/personal_photo.jpg"
-                                    width={40}
-                                    height={40}
-                                    alt="My Avatar"
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                            </figure>
-
-                            <div
-                                className="flex items-center gap-2 text-sm tracking-wide float-animation"
-                                style={{
-                                    color: "var(--text-secondary)",
-                                }}
-                            >
-                                <span className="relative w-3 h-3 rounded-full bg-green-500 tech-glow">
-                                    <span className="absolute inset-0 rounded-full bg-green-500 animate-ping"></span>
-                                </span>
-                                <span className="font-medium">
-                                    Available for work
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <StatusBadge />
                 </div>
             </header>
         </>

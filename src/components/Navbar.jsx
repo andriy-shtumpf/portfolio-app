@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { updateNavbarActiveState } from "../utils/navbarUtils";
+import NavItem from "./navbar/NavItem";
 
 const Navbar = ({ navOpen, scrolled }) => {
     const lastActiveLink = useRef();
@@ -100,21 +101,15 @@ const Navbar = ({ navOpen, scrolled }) => {
             }`}
         >
             {navItems.map(({ label, link, className, ref, icon }, index) => (
-                <a
-                    href={link}
+                <NavItem
                     key={index}
+                    label={label}
+                    link={link}
+                    className={className}
                     ref={ref}
-                    className={`${className} group relative overflow-hidden`}
+                    icon={icon}
                     onClick={activeCurrentLink}
-                >
-                    <div className="flex items-center gap-2">
-                        <span className="material-symbols-rounded text-[18px] opacity-70 group-hover:opacity-100 transition-opacity md:hidden">
-                            {icon}
-                        </span>
-                        <span className="relative z-10">{label}</span>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                </a>
+                />
             ))}
 
             <div className="active-box" ref={activeBox}></div>
