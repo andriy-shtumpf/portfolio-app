@@ -191,7 +191,7 @@ const Header = () => {
                         <div className="flex items-center gap-3 tech-status-indicator">
                             <figure className="w-10 h-10 rounded-xl overflow-hidden p-1">
                                 <img
-                                    src="/images/custom/personal_photo.jpg"
+                                    src="/images/custom/profile.jpg"
                                     width={40}
                                     height={40}
                                     alt="My Avatar"
