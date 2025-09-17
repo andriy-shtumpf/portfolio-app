@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HeroPage from "./components/Hero";
 import ProjectsPage from "./components/Projects";
-import ReviewPage from "./components/Review";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -33,18 +33,19 @@ const App = () => {
     });
 
     return (
-        <ReactLenis root>
-            <Header />
-            <main>
-                <HeroPage />
-                <AboutPage />
-                {/* <SkillSet /> */}
-                <ProjectsPage />
-                <ReviewPage />
-                <ContactPage />
-                <Footer />
-            </main>
-        </ReactLenis>
+        <ThemeProvider>
+            <ReactLenis root>
+                <Header />
+                <main>
+                    <HeroPage />
+                    <AboutPage />
+                    {/* <SkillSet /> */}
+                    <ProjectsPage />
+                    <ContactPage />
+                    <Footer />
+                </main>
+            </ReactLenis>
+        </ThemeProvider>
     );
 };
 

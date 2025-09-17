@@ -86,12 +86,6 @@ const Navbar = ({ navOpen, scrolled }) => {
             icon: "work",
         },
         {
-            label: "Reviews",
-            link: "#reviews",
-            className: "nav-link",
-            icon: "star",
-        },
-        {
             label: "Contact",
             link: "#contact",
             className: "nav-link md:hidden",

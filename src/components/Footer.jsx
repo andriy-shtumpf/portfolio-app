@@ -1,50 +1,26 @@
 const sitemap = [
     {
         label: "Home",
-        href: "#home",
+        link: "#home",
     },
     {
         label: "About",
-        href: "#about",
+        link: "#about",
     },
     {
-        label: "Experience",
-        href: "#experience",
-    },
-    {
-        label: "Skills",
-        href: "#skills",
-    },
-    {
-        label: "Reviews",
-        href: "#reviews",
-    },
-    {
-        label: "Contact me",
-        href: "#contact",
+        label: "Projects",
+        link: "#projects",
     },
 ];
 
 const socials = [
     {
         label: "GitHub",
-        href: "https://www.github.com/codewithsadee-org",
+        href: "https://github.com/andriy-shtumpf/portfolio-app",
     },
     {
         label: "LinkedIn",
-        href: "https://www.linkedin.com/in/codewithsadee",
-    },
-    {
-        label: "Twitter X",
-        href: "https://x.com/codewithsadee_",
-    },
-    {
-        label: "Instagram",
-        href: "https://www.instagram.com/codewithsadee",
-    },
-    {
-        label: "CodePen",
-        href: "https://codepen.io/codewithsadee",
+        href: "https://www.linkedin.com/in/andriy-shtumpf",
     },
 ];
 

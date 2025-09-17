@@ -2,8 +2,21 @@ const ProjectCard = ({ work, index }) => {
     return (
         <div
             key={index}
-            className="relative bg-zinc-600/30 backdrop-blur-sm ring-3 ring-inset ring-zinc-50/10 p-4 rounded-lg hover:bg-zinc-800/40 
-            transition-colors group active:bg-zinc-700/40 reveal-up"
+            className="relative premium-card p-6 rounded-2xl transition-all duration-300 group reveal-up"
+            style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border-primary)",
+            }}
+            onMouseEnter={(e) => {
+                e.target.style.borderColor = "var(--border-accent)";
+                e.target.style.boxShadow = "0 15px 35px var(--shadow-accent)";
+                e.target.style.transform = "translateY(-4px)";
+            }}
+            onMouseLeave={(e) => {
+                e.target.style.borderColor = "var(--border-primary)";
+                e.target.style.boxShadow = "0 10px 25px var(--shadow-primary)";
+                e.target.style.transform = "translateY(0)";
+            }}
         >
             <img
                 src={work.imgSrc}
@@ -12,12 +25,22 @@ const ProjectCard = ({ work, index }) => {
             />
             <div className="flex items-center justify-between gap-4">
                 <div className="">
-                    <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
+                    <h3
+                        className="text-xl font-semibold mb-3"
+                        style={{ color: "var(--text-primary)" }}
+                    >
+                        {work.title}
+                    </h3>
                     <div className="flex flex-wrap gap-2 mb-4">
                         {work.tags.map((tag, tagIndex) => (
                             <span
                                 key={tagIndex}
-                                className="bg-zinc-700 text-zinc-300 px-3 py-1 rounded-full text-sm"
+                                className="px-3 py-1 rounded-full text-sm font-medium border"
+                                style={{
+                                    backgroundColor: "var(--bg-tertiary)",
+                                    color: "var(--text-secondary)",
+                                    borderColor: "var(--border-secondary)",
+                                }}
                             >
                                 {tag}
                             </span>
@@ -25,12 +48,19 @@ const ProjectCard = ({ work, index }) => {
                     </div>
                 </div>
 
-                <div className="flex gap-2">
-                    {/* Live Project Link */}
+                <div className="flex gap-3">
+                    {/* Premium Live Project Link */}
                     {work.projectLink && (
-                        <div className="relative w-11 h-11 rounded-lg grid place-items-center bg-sky-400 text-zinc-950 shrink-0">
+                        <div
+                            className="relative w-11 h-11 rounded-xl grid place-items-center shrink-0 transition-all duration-300 hover:scale-110 active:scale-95"
+                            style={{
+                                background: "var(--gradient-primary)",
+                                color: "white",
+                                boxShadow: "0 4px 15px var(--shadow-accent)",
+                            }}
+                        >
                             <span
-                                className="material-symbols-rounded cursor-pointer"
+                                className="material-symbols-rounded cursor-pointer text-lg"
                                 aria-hidden="true"
                             >
                                 <a
@@ -45,9 +75,27 @@ const ProjectCard = ({ work, index }) => {
                         </div>
                     )}
 
-                    {/* GitHub Link */}
+                    {/* Premium GitHub Link */}
                     {work.githubLink && (
-                        <div className="relative w-11 h-11 rounded-lg grid place-items-center bg-zinc-700 text-zinc-300 shrink-0 hover:bg-zinc-600 transition-colors">
+                        <div
+                            className="relative w-11 h-11 rounded-xl grid place-items-center shrink-0 transition-all duration-300 hover:scale-110 active:scale-95 border"
+                            style={{
+                                backgroundColor: "var(--bg-tertiary)",
+                                color: "var(--text-primary)",
+                                borderColor: "var(--border-primary)",
+                            }}
+                            onMouseEnter={(e) => {
+                                e.target.style.borderColor =
+                                    "var(--accent-primary)";
+                                e.target.style.boxShadow =
+                                    "0 4px 15px var(--shadow-accent)";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.borderColor =
+                                    "var(--border-primary)";
+                                e.target.style.boxShadow = "none";
+                            }}
+                        >
                             <a
                                 href={work.githubLink}
                                 target="_blank"
