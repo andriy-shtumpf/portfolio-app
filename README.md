@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing the skills and projects of a full-stack software engineer. Built with cutting-edge technologies and featuring smooth animations, dark mode support, and optimized performance.
 
-![Portfolio Preview](./public/images/hero-banner.png)
+![Portfolio Preview](./public/images/personal_photo.jpg)
 
 ## ✨ Features
 
