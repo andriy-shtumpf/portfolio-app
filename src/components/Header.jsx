@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -37,81 +38,142 @@ const Header = () => {
 
     return (
         <>
-            {/* Scroll Progress Bar */}
+            {/* Premium Scroll Progress Bar */}
             <div
-                className={`fixed top-0 left-0 w-full h-1 z-50 force-fixed transition-all duration-700 ease-out
-                ${scrolled ? "bg-zinc-950/20" : "bg-zinc-950/50"}`}
+                className="fixed top-0 left-0 w-full h-1 z-50 force-fixed transition-all duration-700 ease-out"
+                style={{
+                    backgroundColor: scrolled
+                        ? "var(--bg-secondary)"
+                        : "var(--bg-tertiary)",
+                }}
             >
                 <div
-                    className="h-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 transition-all duration-300 ease-out tech-glow"
-                    style={{ width: `${scrollProgress * 100}%` }}
+                    className="h-full transition-all duration-300 ease-out"
+                    style={{
+                        width: `${scrollProgress * 100}%`,
+                        background: "var(--gradient-primary)",
+                        boxShadow: "0 0 10px var(--shadow-accent)",
+                    }}
                 />
             </div>
 
-            {/* Dynamic Background Overlay */}
+            {/* Premium Dynamic Background Overlay */}
             <div
-                className={`fixed top-0 left-0 w-full h-20 z-30 pointer-events-none tech-mesh-bg force-fixed transition-opacity duration-700 ease-out
-                    ${scrolled ? "opacity-30" : "opacity-100"}`}
+                className={`fixed top-0 left-0 w-full h-20 z-30 pointer-events-none force-fixed transition-opacity duration-700 ease-out
+                    ${scrolled ? "opacity-20" : "opacity-40"}`}
                 style={{
-                    background: `radial-gradient(600px circle at ${
+                    background: `radial-gradient(800px circle at ${
                         mousePosition.x
-                    }px ${mousePosition.y}px, rgba(14, 165, 233, ${
-                        scrolled ? 0.02 : 0.05
-                    }), transparent 40%)`,
+                    }px ${mousePosition.y}px, var(--accent-primary)${
+                        scrolled ? "10" : "20"
+                    }, transparent 50%)`,
                 }}
             />
 
             <header
                 className={`fixed top-0 left-0 w-full h-20 flex items-center z-50 transition-all duration-700 ease-out tech-header force-fixed
-                    ${scrolled ? "scrolled" : ""}
-                    ${
-                        scrolled
-                            ? "bg-zinc-950/20 backdrop-blur-2xl border-b border-cyan-400/10 shadow-lg shadow-cyan-500/5"
-                            : "bg-gradient-to-b from-zinc-950/70 via-zinc-900/50 to-transparent backdrop-blur-xl"
-                    }`}
+                    ${scrolled ? "scrolled" : ""}`}
+                style={{
+                    backgroundColor: scrolled
+                        ? "var(--bg-overlay)"
+                        : "var(--bg-glass)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    borderBottom: scrolled
+                        ? `1px solid var(--border-accent)`
+                        : "1px solid transparent",
+                    boxShadow: scrolled
+                        ? `0 4px 20px var(--shadow-primary)`
+                        : "none",
+                }}
             >
                 <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center md:px-6">
-                    {/* Tech-Enhanced Logo with Brand Name */}
+                    {/* Premium Logo with Brand Name */}
                     <div className="flex items-center gap-4 group">
                         <div className="relative">
-                            {/* Animated Tech Rings */}
+                            {/* Premium Glow Effects */}
                             <div className="absolute inset-0 rounded-xl">
-                                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-                                <div className="absolute inset-0 border border-cyan-400/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow"></div>
+                                <div
+                                    className="absolute inset-0 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"
+                                    style={{
+                                        background: "var(--gradient-primary)",
+                                        opacity: 0.2,
+                                    }}
+                                ></div>
+                                <div
+                                    className="absolute inset-0 border rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow"
+                                    style={{
+                                        borderColor: "var(--accent-primary)",
+                                    }}
+                                ></div>
                             </div>
 
                             <a
                                 href="/"
-                                className="logo relative block p-3 rounded-xl bg-gradient-to-br from-zinc-900/80 to-zinc-950/80 border border-zinc-700/50 hover:border-cyan-400/50 transition-all duration-500 hover:scale-110 tech-logo-container"
+                                className="logo relative block w-14 h-14 p-1 rounded-xl border transition-all duration-500 hover:scale-110 tech-logo-container"
+                                style={{
+                                    background: "var(--gradient-secondary)",
+                                    borderColor: "var(--border-primary)",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.borderColor =
+                                        "var(--accent-primary)";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.borderColor =
+                                        "var(--border-primary)";
+                                }}
                             >
                                 <img
-                                    src="/images/logo.svg"
-                                    width={28}
-                                    height={28}
+                                    src="/images/custom/logo/logo-classic.png"
                                     alt="logo"
-                                    className="relative z-10 filter brightness-110"
+                                    className="relative z-10 filter brightness-110 w-full h-full object-cover rounded-lg"
                                 />
-                                {/* Tech Grid Overlay */}
-                                <div className="absolute inset-0 bg-tech-grid opacity-20 rounded-xl"></div>
+                                {/* Premium Grid Overlay */}
+                                <div className="absolute inset-0 bg-tech-grid rounded-xl"></div>
                             </a>
                         </div>
 
                         <div className="hidden sm:block">
-                            <h1 className="text-lg font-bold bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-500 bg-clip-text text-transparent tech-text-glow">
+                            <h1
+                                className="text-lg font-bold bg-clip-text text-transparent tech-text-glow"
+                                style={{
+                                    background: "var(--gradient-primary)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                    backgroundClip: "text",
+                                }}
+                            >
                                 Portfolio
                             </h1>
                             <div className="flex items-center gap-2 -mt-1">
-                                <div className="w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
-                                <p className="text-xs text-zinc-400 font-mono tracking-wider">
+                                <div
+                                    className="w-1 h-1 rounded-full animate-pulse"
+                                    style={{
+                                        backgroundColor:
+                                            "var(--accent-primary)",
+                                    }}
+                                ></div>
+                                <p
+                                    className="text-xs font-mono tracking-wider"
+                                    style={{ color: "var(--text-tertiary)" }}
+                                >
                                     DEVELOPER
                                 </p>
-                                <div className="w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-75"></div>
+                                <div
+                                    className="w-1 h-1 rounded-full animate-pulse delay-75"
+                                    style={{
+                                        backgroundColor:
+                                            "var(--accent-secondary)",
+                                    }}
+                                ></div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Navigation */}
-                    <div className="relative md:justify-self-center">
+                    {/* Navigation Menu */}
+                    <div className="relative md:justify-self-center flex items-center gap-3">
+                        {/* Menu Button */}
                         <button className="menu-btn" onClick={handleIsOpen}>
                             <span className="material-symbols-rounded">
                                 {navOpen ? "close" : "menu"}
@@ -120,46 +182,37 @@ const Header = () => {
                         <Navbar navOpen={navOpen} scrolled={scrolled} />
                     </div>
 
-                    {/* Tech-Enhanced CTA Section */}
-                    <div className="flex items-center gap-4">
-                        {/* Advanced Status Indicator */}
-                        <div className="hidden lg:flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-500/10 to-green-500/10 border border-emerald-400/30 backdrop-blur-sm tech-status-indicator">
-                            <div className="relative">
-                                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                                <div className="absolute inset-0 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
+                    {/* Theme Toggle and Status Badge */}
+                    <div className="hidden lg:flex items-center gap-3">
+                        {/* Theme Toggle Button - Outside overflow container */}
+                        <ThemeToggle />
+
+                        {/* Status Badge */}
+                        <div className="flex items-center gap-3 tech-status-indicator">
+                            <figure className="w-10 h-10 rounded-xl overflow-hidden p-1">
+                                <img
+                                    src="/images/custom/profile.jpg"
+                                    width={40}
+                                    height={40}
+                                    alt="My Avatar"
+                                    className="w-full h-full object-cover rounded-lg"
+                                />
+                            </figure>
+
+                            <div
+                                className="flex items-center gap-2 text-sm tracking-wide float-animation"
+                                style={{
+                                    color: "var(--text-secondary)",
+                                }}
+                            >
+                                <span className="relative w-3 h-3 rounded-full bg-green-500 tech-glow">
+                                    <span className="absolute inset-0 rounded-full bg-green-500 animate-ping"></span>
+                                </span>
+                                <span className="font-medium">
+                                    Available for work
+                                </span>
                             </div>
-                            <span className="text-xs text-emerald-300 font-mono tracking-wide">
-                                ONLINE
-                            </span>
-                            <div className="w-px h-3 bg-emerald-400/30"></div>
-                            <span className="text-xs text-zinc-400 font-mono">
-                                24/7
-                            </span>
                         </div>
-
-                        {/* Futuristic CTA Button */}
-                        <a
-                            href="#contact"
-                            className="btn btn-secondary group relative overflow-hidden tech-cta-button"
-                        >
-                            {/* Animated Background Layers */}
-                            <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                            <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
-
-                            {/* Tech Grid Pattern */}
-                            <div className="absolute inset-0 bg-tech-grid opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
-
-                            {/* Button Content */}
-                            <span className="relative z-10 group-hover:text-white transition-colors duration-300 font-medium">
-                                CONNECT
-                            </span>
-                            <span className="material-symbols-rounded text-[16px] ml-2 group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300 relative z-10">
-                                arrow_forward
-                            </span>
-
-                            {/* Scanning Line Effect */}
-                            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-scan-line transition-opacity duration-300"></div>
-                        </a>
                     </div>
                 </div>
             </header>
