@@ -67,7 +67,6 @@ const ContactPage = () => {
                                 key={index}
                                 href={link.href}
                                 icon={link.icon}
-                                alt={link.alt}
                             />
                         ))}
                     </div>
