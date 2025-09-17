@@ -9,12 +9,23 @@ const ProjectsPage = () => {
         >
             <div className="container">
                 <div className="flex flex-col justify-center min-h-[80vh]">
-                    {/* Header Section */}
+                    {/* Premium Header Section */}
                     <div className="text-center mb-12">
-                        <h2 className="headline-2 mb-8 reveal-up">
+                        <h2
+                            className="headline-2 mb-8 reveal-up text-gradient-primary"
+                            style={{
+                                background: "var(--gradient-primary)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                            }}
+                        >
                             My Projects
                         </h2>
-                        <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] mx-auto reveal-up">
+                        <p
+                            className="mt-3 mb-8 max-w-[50ch] mx-auto reveal-up text-lg"
+                            style={{ color: "var(--text-secondary)" }}
+                        >
                             Here are some of the projects I have worked on. You
                             can check them out by clicking on the links below.
                         </p>
