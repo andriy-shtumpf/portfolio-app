@@ -8,43 +8,33 @@ const ReferencesPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [showFallback, setShowFallback] = useState(false);
 
-    // List of reference files - in a real app, this could come from an API
     const references = [
         {
             id: 1,
             filename: "Andriy Shtumpf from Senior HR Manager.pdf",
             displayName: "Senior HR Manager Reference",
             description: "Professional reference letter from Senior HR Manager",
-            company: "Previous Company",
+            company: "Elekc Inc.",
             position: "HR Manager",
-            date: "2024",
+            date: "2025",
         },
         {
             id: 2,
             filename: "Andriy Shtumpf Reference.pdf",
-            displayName: "Professional Reference Letter",
-            description: "General professional reference letter",
-            company: "Professional Contact",
+            displayName: "Professional Reference Letter from Senior Engineer",
+            description: "Worked in the same team for four years",
+            company: "Eleks Inc.",
             position: "Reference",
-            date: "2024",
+            date: "2025",
         },
         {
             id: 3,
-            filename: "Andriy Shtumpf.pdf",
-            displayName: "Andriy Shtumpf - Professional Profile",
-            description: "Professional profile and reference document",
-            company: "Professional Portfolio",
-            position: "Profile",
-            date: "2024",
-        },
-        {
-            id: 4,
             filename: "Referral-Letter-for-Andriy-Shtumpf.pdf",
             displayName: "Professional Referral Letter",
-            description: "Professional referral letter for Andriy Shtumpf",
-            company: "Professional Network",
-            position: "Referral",
-            date: "2024",
+            description: "Worked in the same team for four years",
+            company: "Health Care Service Corporation",
+            position: "Middle Software Engineer",
+            date: "2025",
         },
     ];
 
@@ -65,19 +55,16 @@ const ReferencesPage = () => {
         setShowFallback(false);
     };
 
-    // Check if PDF can be displayed inline
     useEffect(() => {
         if (selectedReference) {
-            // Reset states when a new reference is selected
             setPdfLoadError(false);
             setIsLoading(true);
             setShowFallback(false);
 
-            // Set a timeout to hide loading indicator and show fallback option
             const timer = setTimeout(() => {
                 setIsLoading(false);
                 setShowFallback(true);
-            }, 3000); // 3 seconds to show fallback option
+            }, 3000);
 
             return () => clearTimeout(timer);
         }
