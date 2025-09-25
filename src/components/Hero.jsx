@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { scrollToSectionAndUpdateNav } from "../utils/navbarUtils";
 
 const HeroPage = () => {
+    const navigate = useNavigate();
+
     return (
         <section className="relative min-h-screen overflow-hidden" id="home">
             {/* Premium Background Layers */}
@@ -106,6 +109,7 @@ const HeroPage = () => {
                                     e.target.style.boxShadow =
                                         "0 10px 25px var(--shadow-accent), 0 0 0 1px var(--border-accent)";
                                 }}
+                                onClick={() => navigate("/resume")}
                             >
                                 <span className="material-symbols-rounded text-lg">
                                     download
