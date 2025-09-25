@@ -14,7 +14,7 @@ const ReferencesPage = () => {
             filename: "Andriy Shtumpf from Senior HR Manager.pdf",
             displayName: "Senior HR Manager Reference",
             description: "Professional reference letter from Senior HR Manager",
-            company: "Elekc Inc.",
+            company: "Eleks Inc.",
             position: "HR Manager",
             date: "2025",
         },
@@ -25,7 +25,7 @@ const ReferencesPage = () => {
             description: "Worked in the same team for four years",
             company: "Eleks Inc.",
             position: "Reference",
-            date: "2024",
+            date: "2025",
         },
         {
             id: 3,

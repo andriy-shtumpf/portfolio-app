@@ -7,7 +7,15 @@ const StatusBadge = () => {
             <ThemeToggle />
 
             {/* Status Badge */}
-            <div className="flex items-center gap-3 tech-status-indicator">
+            <div
+                className="flex items-center gap-3 tech-status-indicator h-11 rounded-xl px-4"
+                style={{
+                    backgroundColor: "var(--bg-glass)",
+                    border: "1px solid var(--border-accent)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                }}
+            >
                 <figure className="w-10 h-10 rounded-xl overflow-hidden p-1">
                     <img
                         src="/images/custom/personal_photo.jpg"
