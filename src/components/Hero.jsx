@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { scrollToSectionAndUpdateNav } from "../utils/navbarUtils";
 
 const HeroPage = () => {
     const navigate = useNavigate();
@@ -143,14 +142,12 @@ const HeroPage = () => {
                                     e.target.style.boxShadow =
                                         "0 10px 25px var(--shadow-primary)";
                                 }}
-                                onClick={() => {
-                                    scrollToSectionAndUpdateNav("projects");
-                                }}
+                                onClick={() => navigate("/references")}
                             >
-                                <span>View Projects</span>
                                 <span className="material-symbols-rounded text-lg">
-                                    arrow_forward
+                                    folder_open
                                 </span>
+                                <span>View References</span>
                             </button>
                         </div>
                     </div>
