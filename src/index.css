@@ -1232,3 +1232,9 @@ main::before {
     transition-duration: 0.3s;
     transition-timing-function: ease;
 }
+
+/* PDF Fallback Styles */
+iframe:not([src*="resume.pdf"]) + #pdf-fallback,
+iframe[src=""]:not([src*="resume.pdf"]) + #pdf-fallback {
+    display: flex !important;
+}
