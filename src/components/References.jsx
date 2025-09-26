@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ReferencesPage = () => {
@@ -11,6 +11,15 @@ const ReferencesPage = () => {
     const references = [
         {
             id: 1,
+            filename: "Andriy Shtumpf Recommendation.pdf",
+            displayName: "Account Manager Reference",
+            description: "Professional reference letter from Account Manager",
+            company: "Eleks Inc.",
+            position: "Account Manager",
+            date: "2025",
+        },
+        {
+            id: 2,
             filename: "Andriy Shtumpf from Senior HR Manager.pdf",
             displayName: "Senior HR Manager Reference",
             description: "Professional reference letter from Senior HR Manager",
@@ -19,7 +28,7 @@ const ReferencesPage = () => {
             date: "2025",
         },
         {
-            id: 2,
+            id: 3,
             filename: "Andriy Shtumpf Reference.pdf",
             displayName: "Professional Reference Letter from Senior Engineer",
             description: "Worked in the same team for four years",
@@ -28,7 +37,7 @@ const ReferencesPage = () => {
             date: "2025",
         },
         {
-            id: 3,
+            id: 4,
             filename: "Referral-Letter-for-Andriy-Shtumpf.pdf",
             displayName: "Professional Referral Letter",
             description: "Worked in the same team for four years",
