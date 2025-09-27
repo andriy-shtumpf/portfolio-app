@@ -1,4 +1,4 @@
-import { works } from "../utils/projects";
+import { projects } from "../utils/projects";
 import ProjectCard from "./ProjectCard";
 
 const ProjectsPage = () => {
@@ -33,10 +33,10 @@ const ProjectsPage = () => {
 
                     {/* Projects Grid */}
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-                        {works.map((work, index) => (
+                        {projects.map((project, index) => (
                             <ProjectCard
                                 key={index}
-                                work={work}
+                                project={project}
                                 index={index}
                             />
                         ))}

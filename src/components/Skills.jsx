@@ -1,172 +1,5 @@
-const skillItem = [
-    // Core Languages
-    {
-        imgSrc: "/images/java.svg",
-        label: "Java",
-        desc: "8, 11, 17+",
-    },
-    {
-        imgSrc: "/images/javascript.svg",
-        label: "JavaScript",
-        desc: "ES6+",
-    },
-    {
-        imgSrc: "/images/react.svg",
-        label: "React.js",
-        desc: "Frontend",
-    },
-    {
-        imgSrc: "/images/nextjs.svg",
-        label: "Next.js",
-        desc: "React Framework",
-    },
-    {
-        imgSrc: "/images/redux.svg",
-        label: "Redux",
-        desc: "State Management",
-    },
-    {
-        imgSrc: "/images/python.svg",
-        label: "Python",
-        desc: "Programming",
-    },
-    {
-        imgSrc: "/images/typescript.svg",
-        label: "TypeScript",
-        desc: "Type Safety",
-    },
-    {
-        imgSrc: "/images/sql.svg",
-        label: "SQL",
-        desc: "Database",
-    },
-
-    // Backend Frameworks
-    {
-        imgSrc: "/images/spring.svg",
-        label: "Spring Boot",
-        desc: "Java Framework",
-    },
-    {
-        imgSrc: "/images/spring-cloud.svg",
-        label: "Spring Cloud",
-        desc: "Microservices",
-    },
-    {
-        imgSrc: "/images/hibernate.svg",
-        label: "Hibernate",
-        desc: "ORM",
-    },
-    {
-        imgSrc: "/images/micronaut.svg",
-        label: "Micronaut",
-        desc: "Framework",
-    },
-
-    // Cloud Platforms
-    {
-        imgSrc: "/images/amazonwebservices.svg",
-        label: "AWS",
-        desc: "Cloud Platform",
-    },
-    {
-        imgSrc: "/images/azure.svg",
-        label: "Microsoft Azure",
-        desc: "Cloud Platform",
-    },
-
-    // DevOps & Tools
-    {
-        imgSrc: "/images/docker.svg",
-        label: "Docker",
-        desc: "Containerization",
-    },
-    {
-        imgSrc: "/images/kubernetes.svg",
-        label: "Kubernetes",
-        desc: "Orchestration",
-    },
-    {
-        imgSrc: "/images/gitlab.svg",
-        label: "GitLab",
-        desc: "CI/CD",
-    },
-    {
-        imgSrc: "/images/jenkins.svg",
-        label: "Jenkins",
-        desc: "Automation",
-    },
-    {
-        imgSrc: "/images/terraform.svg",
-        label: "Terraform",
-        desc: "Infrastructure",
-    },
-
-    // Databases
-    {
-        imgSrc: "/images/postgresql.svg",
-        label: "PostgreSQL",
-        desc: "Database",
-    },
-    {
-        imgSrc: "/images/mongodb.svg",
-        label: "MongoDB",
-        desc: "NoSQL",
-    },
-    {
-        imgSrc: "/images/redis.svg",
-        label: "Redis",
-        desc: "Caching",
-    },
-    {
-        imgSrc: "/images/apachekafka.svg",
-        label: "Apache Kafka",
-        desc: "Streaming",
-    },
-
-    // Architecture
-    {
-        imgSrc: "/images/microservices.svg",
-        label: "Microservices",
-        desc: "Architecture",
-    },
-    {
-        imgSrc: "/images/restful-apis.svg",
-        label: "RESTful APIs",
-        desc: "Web Services",
-    },
-
-    // Testing
-    {
-        imgSrc: "/images/junit.svg",
-        label: "JUnit",
-        desc: "Testing",
-    },
-    {
-        imgSrc: "/images/jest.svg",
-        label: "Jest",
-        desc: "JS Testing",
-    },
-
-    // Development Tools
-    {
-        imgSrc: "/images/git.svg",
-        label: "Git",
-        desc: "Version Control",
-    },
-    {
-        imgSrc: "/images/intellij.svg",
-        label: "IntelliJ IDEA",
-        desc: "IDE",
-    },
-    {
-        imgSrc: "/images/vscode.svg",
-        label: "VS Code",
-        desc: "Editor",
-    },
-];
-
 import SkillIcon from "./SkillIcon";
+import { skillCategories } from "./skills/utils";
 
 const Skills = ({
     asSection = true,
@@ -196,37 +29,54 @@ const Skills = ({
                 </div>
             )}
 
-            <div className={`grid gap-3 ${gridCols} ${className}`}>
-                {skillItem.map((item, index) => (
-                    <div
-                        key={index}
-                        className="bg-zinc-600/30 backdrop-blur-sm ring-1 ring-zinc-50/10 p-3 
-                        rounded-lg hover:bg-zinc-800/40 transition-colors group reveal-up"
-                    >
-                        <SkillIcon
-                            src={item.imgSrc}
-                            alt={item.label}
-                            className={`w-10 h-10 mb-2 ${
-                                centerText ? "mx-auto" : ""
-                            }`}
-                            centerText={centerText}
-                        />
-                        <h3
-                            className={`${textSize} font-semibold ${
-                                centerText ? "text-center" : ""
-                            }`}
-                        >
-                            {item.label}
-                        </h3>
-                        <p
-                            className={`${descSize} text-zinc-400 ${
-                                centerText ? "text-center" : ""
-                            }`}
-                        >
-                            {item.desc}
-                        </p>
-                    </div>
-                ))}
+            <div className="space-y-8">
+                {Object.entries(skillCategories).map(
+                    ([categoryName, skills], categoryIndex) => (
+                        <div key={categoryIndex} className="reveal-up">
+                            <h3
+                                className={`text-lg font-semibold text-zinc-200 mb-4 ${
+                                    centerText ? "text-center" : ""
+                                }`}
+                            >
+                                {categoryName}
+                            </h3>
+                            <div
+                                className={`grid gap-3 ${gridCols} ${className}`}
+                            >
+                                {skills.map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-zinc-600/30 backdrop-blur-sm ring-1 ring-zinc-50/10 p-3 
+                                    rounded-lg hover:bg-zinc-800/40 transition-colors group reveal-up"
+                                    >
+                                        <SkillIcon
+                                            src={item.imgSrc}
+                                            alt={item.label}
+                                            className={`w-10 h-10 mb-2 ${
+                                                centerText ? "mx-auto" : ""
+                                            }`}
+                                            centerText={centerText}
+                                        />
+                                        <h4
+                                            className={`${textSize} font-semibold ${
+                                                centerText ? "text-center" : ""
+                                            }`}
+                                        >
+                                            {item.label}
+                                        </h4>
+                                        <p
+                                            className={`${descSize} text-zinc-400 ${
+                                                centerText ? "text-center" : ""
+                                            }`}
+                                        >
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )
+                )}
             </div>
         </>
     );
