@@ -1,4 +1,4 @@
-const works = [
+const projects = [
     {
         imgSrc: "/images/events-board.png",
         title: "Events-board",
@@ -22,4 +22,4 @@ const works = [
     },
 ];
 
-export { works };
+export { projects };

@@ -1,4 +1,4 @@
-const ProjectCard = ({ work, index }) => {
+const ProjectCard = ({ project, index }) => {
     return (
         <div
             key={index}
@@ -19,8 +19,8 @@ const ProjectCard = ({ work, index }) => {
             }}
         >
             <img
-                src={work.imgSrc}
-                alt={work.title}
+                src={project.imgSrc}
+                alt={project.title}
                 className="w-full h-[200px] object-cover rounded-lg mb-4"
             />
             <div className="flex items-center justify-between gap-4">
@@ -29,10 +29,10 @@ const ProjectCard = ({ work, index }) => {
                         className="text-xl font-semibold mb-3"
                         style={{ color: "var(--text-primary)" }}
                     >
-                        {work.title}
+                        {project.title}
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-4">
-                        {work.tags.map((tag, tagIndex) => (
+                        {project.tags.map((tag, tagIndex) => (
                             <span
                                 key={tagIndex}
                                 className="px-3 py-1 rounded-full text-sm font-medium border"
@@ -50,7 +50,7 @@ const ProjectCard = ({ work, index }) => {
 
                 <div className="flex gap-3">
                     {/* Premium Live Project Link */}
-                    {work.projectLink && (
+                    {project.projectLink && (
                         <div
                             className="relative w-11 h-11 rounded-xl grid place-items-center shrink-0 transition-all duration-300 hover:scale-110 active:scale-95"
                             style={{
@@ -64,7 +64,7 @@ const ProjectCard = ({ work, index }) => {
                                 aria-hidden="true"
                             >
                                 <a
-                                    href={work.projectLink}
+                                    href={project.projectLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inset-0 cursor-pointer absolute"
@@ -76,7 +76,7 @@ const ProjectCard = ({ work, index }) => {
                     )}
 
                     {/* Premium GitHub Link */}
-                    {work.githubLink && (
+                    {project.githubLink && (
                         <div
                             className="relative w-11 h-11 rounded-xl grid place-items-center shrink-0 transition-all duration-300 hover:scale-110 active:scale-95 border"
                             style={{
@@ -97,7 +97,7 @@ const ProjectCard = ({ work, index }) => {
                             }}
                         >
                             <a
-                                href={work.githubLink}
+                                href={project.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full h-full flex items-center justify-center"
