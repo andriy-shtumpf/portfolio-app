@@ -6,8 +6,8 @@ const ResumePage = () => {
     const handleDownload = () => {
         // Create a temporary link element to trigger download
         const link = document.createElement("a");
-        link.href = "/shtumpf_andriy_fullstack_resume.pdf";
-        link.download = "shtumpf_andriy_fullstack_resume.pdf"; // You can customize the filename
+        link.href = "/references/Andriy_Shtumpf_Fullstack_Resume.pdf";
+        link.download = "Andriy_Shtumpf_Fullstack_Resume.pdf"; // You can customize the filename
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -85,68 +85,24 @@ const ResumePage = () => {
 
                 {/* PDF Viewer Container */}
                 <div
-                    className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
+                    className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl"
                     style={{
                         backgroundColor: "var(--bg-card)",
                         border: "1px solid var(--border-accent)",
-                        aspectRatio: "8.5 / 11", // US Letter format aspect ratio
-                        maxHeight: "85vh", // Prevent it from being too tall
-                        minHeight: "600px", // Ensure minimum readable size
+                        height: "85vh", // Full viewport height for better viewing
+                        minHeight: "700px", // Ensure minimum readable size
                     }}
                 >
-                    {/* PDF Embed */}
-                    <div className="relative w-full h-full">
-                        <iframe
-                            src="/shtumpf_andriy_fullstack_resume.pdf#toolbar=1&navpanes=0&scrollbar=0&zoom=FitV&view=FitV"
-                            className="w-full h-full"
-                            title="Resume PDF"
-                            style={{
-                                border: "none",
-                                borderRadius: "inherit",
-                            }}
-                        />
-
-                        {/* Fallback message for browsers that don't support PDF viewing */}
-                        <div
-                            className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
-                            style={{
-                                backgroundColor: "var(--bg-card)",
-                                color: "var(--text-secondary)",
-                                display: "none", // Will be shown by CSS if iframe fails
-                            }}
-                            id="pdf-fallback"
-                        >
-                            <span
-                                className="material-symbols-rounded text-6xl mb-4"
-                                style={{ color: "var(--accent-primary)" }}
-                            >
-                                description
-                            </span>
-                            <h3
-                                className="text-xl font-semibold mb-4"
-                                style={{ color: "var(--text-primary)" }}
-                            >
-                                PDF Preview Not Available
-                            </h3>
-                            <p className="mb-6 max-w-md">
-                                Your browser doesn't support PDF preview. Please
-                                download the resume to view it.
-                            </p>
-                            <button
-                                onClick={handleDownload}
-                                className="flex items-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all duration-300 hover:scale-105"
-                                style={{
-                                    background: "var(--gradient-primary)",
-                                    color: "white",
-                                }}
-                            >
-                                <span className="material-symbols-rounded text-lg">
-                                    download
-                                </span>
-                                <span>Download Resume</span>
-                            </button>
-                        </div>
-                    </div>
+                    {/* PDF Embed with full toolbar */}
+                    <iframe
+                        src="/references/Andriy_Shtumpf_Fullstack_Resume.pdf"
+                        className="w-full h-full"
+                        title="Resume PDF"
+                        style={{
+                            border: "none",
+                            borderRadius: "inherit",
+                        }}
+                    />
                 </div>
 
                 {/* Additional Download Section */}

@@ -271,7 +271,10 @@ const AboutPage = () => {
                 </div>
 
                 {/* Skills Section - Takes up remaining space */}
-                <div className="flex-[0.3] flex flex-col justify-start pt-8">
+                <div
+                    id="skills"
+                    className="flex-[0.3] flex flex-col justify-start pt-8"
+                >
                     <Skills
                         asSection={false}
                         showHeader={true}
